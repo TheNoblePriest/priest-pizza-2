@@ -33,7 +33,7 @@ export const { addToBasket, removeFromBasket } = basketSlice.actions;
 export const selectItems = (state) => state.basket.items;
 export const selectTotal = (state) =>
   state.basket.items.reduce(
-    (total, item) => total + item.pPrice * item.pQuantity,
+    (total, item) => total + item.price * item.quantity,
     0
   );
 

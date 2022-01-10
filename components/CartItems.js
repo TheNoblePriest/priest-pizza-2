@@ -6,7 +6,7 @@ function CartItems() {
   const items = useSelector(selectItems);
   return (
     <div className="px-2 mx-1 my-2  ">
-      <div className="grid gap-2 grid-cols-8">
+      <div className="grid gap-2 grid-cols-9">
         <p className="cart-head">Product</p>
         <p className="cart-head col-span-2">Name</p>
         <p className="cart-head col-span-2">Description</p>
@@ -18,12 +18,12 @@ function CartItems() {
         {items.map((item, i) => (
           <Items
             key={i}
-            id={item.pId}
-            name={item.pName}
-            imageSrc={item.pImage}
-            price={item.pPrice}
-            des={item.pDescription}
-            quantity={item.pQuantity}
+            id={item.id}
+            name={item.name}
+            imageSrc={item.image}
+            price={item.price}
+            des={item.description}
+            quantity={item.quantity}
           />
         ))}
       </div>

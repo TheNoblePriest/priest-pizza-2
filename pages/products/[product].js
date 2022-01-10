@@ -5,25 +5,24 @@ import { useState } from "react";
 import Body from "../../components/Body";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  selectPDescription,
-  selectPId,
-  selectPImage,
-  selectPName,
-  selectPPrice,
+  selectDescription,
+  selectId,
+  selectImage,
+  selectName,
+  selectPrice,
 } from "../../slices/features/products/productSlice";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import { addToBasket } from "../../slices/features/cart/cartSlice";
-import { useRouter } from "next/router";
 
 function product() {
-  const pId = useSelector(selectPId);
-  const pName = useSelector(selectPName);
-  const pImage = useSelector(selectPImage);
-  const pPrice = useSelector(selectPPrice);
-  const pDescription = useSelector(selectPDescription);
+  const id = useSelector(selectId);
+  const name = useSelector(selectName);
+  const image = useSelector(selectImage);
+  const price = useSelector(selectPrice);
+  const description = useSelector(selectDescription);
   const dispatch = useDispatch();
 
-  const [amount, setAmount] = useState(pPrice);
+  const [amount, setAmount] = useState(price);
   const [quantity, setQuantity] = useState(1);
 
   const increase = () => {
@@ -41,23 +40,22 @@ function product() {
 
   const addItemToBasket = () => {
     const product = {
-      pId,
-      pName,
-      pImage,
-      pPrice,
-      pDescription,
-      pAmount: amount,
-      pQuantity: quantity,
+      id,
+      name,
+      image,
+      price,
+      description,
+      quantity: quantity,
     };
     dispatch(addToBasket(product));
   };
   return (
-    <div key={pId}>
+    <div key={id}>
       <Navbar />
       <div className="flex justify-around w-full flex-col md:flex-row items-center bg-white pt-10 pb-16">
         <div className="w-[50%] flex justify-center items-center">
           <Image
-            src={pImage}
+            src={image}
             className="rounded-full"
             width={500}
             height={500}
@@ -65,11 +63,11 @@ function product() {
         </div>
         <div className="flex justify-start w-[100%] md:w-[50%] items-center md:items-start flex-col p-1 md:p-2">
           <p className="text-red-500 text-xl font-mono font-bold py-2">
-            {pName}
+            {name}
           </p>
-          <p className="font-mono font-semibold">₹: {pPrice * quantity}</p>
+          <p className="font-mono font-semibold">₹: {price * quantity}</p>
           <p className="font-semibold py-2 text-[14px] text-center md:text-left w-[80%]">
-            {pDescription}
+            {description}
           </p>
 
           <p className="text-lg font-mono font-semibold">Enter the Quantity</p>

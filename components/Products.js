@@ -10,11 +10,11 @@ function Products({ title, imageSrc, id, price, description }) {
   const productPage = () => {
     dispatch(
       sendProduct({
-        pId: id,
-        pName: title,
-        pImage: imageSrc,
-        pPrice: price,
-        pDescription: description,
+        id: id,
+        name: title,
+        image: imageSrc,
+        price: price,
+        description: description,
       })
     );
     router.push({

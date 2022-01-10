@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  pName: "Nepolian Pizza",
-  pId: 1,
-  pImage: "/img/pizza.png",
-  pPrice: 240,
-  pDescription:
+  name: "Nepolian Pizza",
+  id: 1,
+  image: "/img/pizza.png",
+  price: 240,
+  description:
     "Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients.",
 };
 const productSlice = createSlice({
@@ -13,22 +13,22 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     sendProduct: (state, action) => {
-      (state.pId = action.payload.pId),
-        (state.pName = action.payload.pName),
-        (state.pImage = action.payload.pImage),
-        (state.pPrice = action.payload.pPrice);
-      state.pDescription = action.payload.pDescription;
+      (state.id = action.payload.id),
+        (state.name = action.payload.name),
+        (state.image = action.payload.image),
+        (state.price = action.payload.price);
+      state.description = action.payload.description;
     },
   },
 });
 
 export const { sendProduct } = productSlice.actions;
 
-export const selectPId = (state) => state.product.pId;
-export const selectPName = (state) => state.product.pName;
-export const selectPImage = (state) => state.product.pImage;
-export const selectPRating = (state) => state.product.pRating;
-export const selectPPrice = (state) => state.product.pPrice;
-export const selectPDescription = (state) => state.product.pDescription;
+export const selectId = (state) => state.product.id;
+export const selectName = (state) => state.product.name;
+export const selectImage = (state) => state.product.image;
+export const selectRating = (state) => state.product.rating;
+export const selectPrice = (state) => state.product.price;
+export const selectDescription = (state) => state.product.description;
 
 export default productSlice.reducer;
